@@ -118,6 +118,8 @@ dependencies {
 
     compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
+
+    runtimeOnly(fg.deobf("curse.maven:jade-324717:4614153"))
 }
 
 jar {

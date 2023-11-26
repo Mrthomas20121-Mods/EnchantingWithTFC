@@ -11,6 +11,6 @@ public class EnchantingWithTFC {
 
 	public EnchantingWithTFC() {
 		final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-
+		TFCEnchantements.ENCHANTS.register(bus);
 	}
 }
