@@ -9,13 +9,22 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = EnchantingWithTFC.mod_id)
 public class EnchantEvents {
+
+    @SubscribeEvent
+    public static void breakBlockEvent(BlockEvent.BreakEvent event) {
+        if(event.getState().is(Tags.Blocks.ORES)) {
+            event.setExpToDrop(1+event.getLevel().getRandom().nextInt(5));
+        }
+    }
 
     @SubscribeEvent
     public static void damageEvent(LivingDamageEvent event) {
